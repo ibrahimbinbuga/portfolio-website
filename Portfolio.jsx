@@ -19,7 +19,7 @@ const SHOWCASE_PROJECTS = [
     name: 'PomoQuest',
     desc: 'Pomodoro tabanlı derin odak uygulaması tek farkı daha eğlenceli. Oyunlaştırılmış deneyimle odaklanmayı artırırken, SwiftUI ile modern iOS teknolojilerini kullanarak geliştirildi.',
     stack: ['SwiftUI', 'StoreKit', 'App Store', 'Core Data'],
-    storeUrl: '#',
+    storeUrl: 'https://apps.apple.com/tr/app/pomoquest/id6764025307?l=tr',
     accent: '#7c5cfc',
     glow: 'radial-gradient(circle, rgba(124,92,252,0.08) 0%, transparent 70%)',
   },
@@ -1814,7 +1814,7 @@ function Contact() {
           <a href="mailto:ibrahimbinbugaa@gmail.com" className="contact-email">
             ibrahimbinbugaa@gmail.com
           </a>
-          <a href="/cv.docx" download="Ibrahim-Binbuga-Resume.docx" className="cv-btn">
+          <a href="/portfolio-website/ibrahim_binbuga_resume.docx" download="ibrahim_binbuga_resume.docx" className="cv-btn">
             <svg viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
