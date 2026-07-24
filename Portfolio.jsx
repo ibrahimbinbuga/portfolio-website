@@ -25,19 +25,20 @@ const SHOWCASE_PROJECTS = [
   },
   {
     id: 2,
-    name: 'CheckMyBite',
-    desc: 'Marketteki ürünlerin içeriğini saniyeler içinde analiz eden akıllı gıda asistanınızdır.',
-    stack: ['Flutter', 'Firebase', 'Dart', 'ASO'],
-    storeUrl: '#',
+    name: 'Net Sayacım: Sınav Takibi',
+    desc: 'ÖSYM sınavlarına hazırlananlar için net takip, konu yönetimi ve istatistik uygulaması. Flutter mobil arayüz ve Go tabanlı bir API üzerinde çalışır.',
+    stack: ['Flutter', 'Go', 'Fiber', 'Firebase'],
+    storeUrl: 'https://apps.apple.com/tr/app/net-sayac%C4%B1m-s%C4%B1nav-takibi/id6783307079?l=tr',
+    playUrl: 'https://play.google.com/store/apps/details?id=com.if22software.net_sayacim',
     accent: '#ff9f43',
     glow: 'radial-gradient(circle, rgba(255,159,67,0.07) 0%, transparent 70%)',
   },
   {
     id: 3,
-    name: 'Giftie: Hediye Bulucu',
-    desc: 'Sevdiklerinizi mutlu etmenin en kolay, en akıllı ve eğlenceli yoludur. Gelişmiş yapay zeka teknolojimiz sayesinde annenize, babanıza, sevgilinize veya en yakın arkadaşınıza özel, onların ilgi alanlarına ve sizin bütçenize tam uyan kusursuz hediye fikirlerini saniyeler içinde bulabilirsiniz.',
-    stack: ['Flutter', 'Firebase', 'Dart', 'ASO'],
-    storeUrl: '#',
+    name: 'SpendWise: Harcama Takibi',
+    desc: 'Türkiye pazarına yönelik TL bazlı fatura ve abonelik takip uygulaması. Elektrik, su, internet gibi faturaları ve Netflix, Spotify gibi abonelikleri tek yerden takip eder; son ödeme tarihlerinde bildirim gönderir.',
+    stack: ['SwiftUI', 'SwiftData', 'CloudKit', 'StoreKit'],
+    storeUrl: 'https://apps.apple.com/tr/app/spendwise-harcama-takibi/id6767567712?l=tr',
     accent: '#54a0ff',
     glow: 'radial-gradient(circle, rgba(84,160,255,0.07) 0%, transparent 70%)',
   },
@@ -1105,150 +1106,116 @@ function PomoQuestScreen() {
   );
 }
 
-/* CheckMyBite */
-function CheckMyBiteScreen() {
-  const nutrients = [
-    { label: 'Kalori', val: '247 kcal', pct: 62, c: '#ff6b6b' },
-    { label: 'Protein', val: '8.2g', pct: 40, c: '#00ffaa' },
-    { label: 'Yağ', val: '11.4g', pct: 75, c: '#ffd43b' },
-    { label: 'Karbonhidrat', val: '31.8g', pct: 55, c: '#54a0ff' },
-  ];
-  const flags = [
-    { label: 'Gluten', ok: false },
-    { label: 'Laktoz', ok: false },
-    { label: 'Vegan', ok: true },
-    { label: 'Organik', ok: true },
+/* Net Sayacım */
+function NetSayacimScreen() {
+  const subjects = [
+    { label: 'Türkçe', net: 32.5, max: 40, c: '#ff9f43' },
+    { label: 'Matematik', net: 24.0, max: 40, c: '#00ffaa' },
+    { label: 'Fen Bilimleri', net: 15.75, max: 20, c: '#54a0ff' },
+    { label: 'Sosyal Bilimler', net: 9.5, max: 20, c: '#ffd43b' },
   ];
   return (
-    <div style={{ background: 'linear-gradient(160deg, #051a0a 0%, #020d05 100%)', height: '100%' }}>
+    <div style={{ background: 'linear-gradient(160deg, #1a0f05 0%, #0d0702 100%)', height: '100%' }}>
       <StatusBar />
       <div className="app-body">
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: '0.9rem' }}>🔬</span>
-          <span className="app-ttl">CheckMyBite</span>
+          <span style={{ fontSize: '0.9rem' }}>📊</span>
+          <span className="app-ttl">Net Sayacım</span>
         </div>
-        {/* Scanned product */}
+        {/* Exam summary card */}
         <div style={{
           padding: '10px 12px', borderRadius: 12,
-          background: 'rgba(0,255,170,0.05)', border: '1px solid rgba(0,255,170,0.15)',
-          display: 'flex', gap: 10, alignItems: 'center',
+          background: 'rgba(255,159,67,0.06)', border: '1px solid rgba(255,159,67,0.15)',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
-          <div style={{
-            width: 36, height: 36, borderRadius: 8,
-            background: 'rgba(0,255,170,0.1)', border: '1px solid rgba(0,255,170,0.2)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', flexShrink: 0,
-          }}>🍪</div>
           <div>
-            <div style={{ fontSize: '0.7rem', fontWeight: 600 }}>Çikolatalı Bisküvi</div>
-            <div style={{ fontSize: '0.52rem', opacity: 0.4, marginTop: 2, fontFamily: 'IBM Plex Mono, monospace' }}>8690526050049 · 100g başına</div>
+            <div style={{ fontSize: '0.7rem', fontWeight: 600 }}>TYT Deneme #14</div>
+            <div style={{ fontSize: '0.5rem', opacity: 0.4, marginTop: 2, fontFamily: 'IBM Plex Mono, monospace' }}>24 Tem 2026</div>
           </div>
-          <div style={{
-            marginLeft: 'auto', padding: '3px 7px', borderRadius: 6,
-            background: 'rgba(255,107,107,0.15)', border: '1px solid rgba(255,107,107,0.25)',
-            fontSize: '0.5rem', color: '#ff6b6b', fontWeight: 700,
-          }}>C</div>
+          <div style={{ textAlign: 'right' }}>
+            <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#ff9f43' }}>81.75</div>
+            <div style={{ fontSize: '0.45rem', opacity: 0.4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Toplam Net</div>
+          </div>
         </div>
-        {/* Nutrient bars */}
+        {/* Subject nets */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-          {nutrients.map((n, i) => (
+          {subjects.map((s, i) => (
             <div key={i}>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 3 }}>
-                <span style={{ fontSize: '0.52rem', opacity: 0.6 }}>{n.label}</span>
-                <span style={{ fontSize: '0.52rem', color: n.c, fontFamily: 'IBM Plex Mono, monospace' }}>{n.val}</span>
+                <span style={{ fontSize: '0.52rem', opacity: 0.6 }}>{s.label}</span>
+                <span style={{ fontSize: '0.52rem', color: s.c, fontFamily: 'IBM Plex Mono, monospace' }}>{s.net} / {s.max}</span>
               </div>
               <div style={{ height: 3, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden' }}>
-                <div style={{ height: '100%', width: `${n.pct}%`, background: n.c, borderRadius: 2, opacity: 0.8 }} />
+                <div style={{ height: '100%', width: `${(s.net / s.max) * 100}%`, background: s.c, borderRadius: 2, opacity: 0.8 }} />
               </div>
             </div>
           ))}
         </div>
-        {/* Flags */}
-        <div style={{ display: 'flex', gap: 5, flexWrap: 'wrap' }}>
-          {flags.map((f, i) => (
-            <div key={i} style={{
-              padding: '4px 8px', borderRadius: 8,
-              background: f.ok ? 'rgba(0,255,170,0.08)' : 'rgba(255,107,107,0.08)',
-              border: `1px solid ${f.ok ? 'rgba(0,255,170,0.2)' : 'rgba(255,107,107,0.2)'}`,
-              fontSize: '0.5rem', color: f.ok ? '#00ffaa' : '#ff6b6b',
-            }}>
-              {f.ok ? '✓' : '✗'} {f.label}
-            </div>
-          ))}
+        {/* Streak */}
+        <div className="h-streak">
+          <span className="h-snum" style={{ color: '#ff9f43' }}>14</span>
+          <span className="h-stxt">Deneme çözüldü</span>
         </div>
-        {/* Scan btn */}
+        {/* Add exam btn */}
         <div style={{
           padding: '9px', borderRadius: 12, textAlign: 'center',
-          background: 'rgba(0,255,170,0.1)', border: '1px dashed rgba(0,255,170,0.25)',
-          fontSize: '0.58rem', color: '#00ffaa', letterSpacing: '0.08em',
+          background: 'rgba(255,159,67,0.1)', border: '1px dashed rgba(255,159,67,0.25)',
+          fontSize: '0.58rem', color: '#ff9f43', letterSpacing: '0.08em',
           fontFamily: 'IBM Plex Mono, monospace',
         }}>
-          📷 Yeni Ürün Tara
+          + Yeni Deneme Ekle
         </div>
       </div>
     </div>
   );
 }
 
-/* Giftie: Hediye Bulucu */
-function GiftieScreen() {
-  const gifts = [
-    { name: 'Kahve Seti', price: '₺450', match: 96, emoji: '☕', color: '#c9a227' },
-    { name: 'Kitap Seti', price: '₺320', match: 91, emoji: '📚', color: '#54a0ff' },
-    { name: 'Bitki Bakım', price: '₺280', match: 88, emoji: '🌿', color: '#00ffaa' },
+/* SpendWise */
+function SpendWiseScreen() {
+  const items = [
+    { name: 'Elektrik Faturası', due: '3 gün kaldı', amount: '₺410', color: '#ff6b6b', paid: false },
+    { name: 'Netflix', due: 'Otomatik ödeme', amount: '₺149', color: '#54a0ff', paid: false },
+    { name: 'İnternet', due: 'Ödendi', amount: '₺320', color: '#00ffaa', paid: true },
   ];
   return (
-    <div style={{ background: 'linear-gradient(160deg, #140a1a 0%, #0a0410 100%)', height: '100%' }}>
+    <div style={{ background: 'linear-gradient(160deg, #050f1a 0%, #02080d 100%)', height: '100%' }}>
       <StatusBar />
       <div className="app-body">
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <span style={{ fontSize: '0.9rem' }}>🎁</span>
-          <span className="app-ttl">Giftie</span>
+          <span style={{ fontSize: '0.9rem' }}>💳</span>
+          <span className="app-ttl">SpendWise</span>
         </div>
-        {/* Recipient card */}
+        {/* Monthly total card */}
         <div style={{
           padding: '10px 12px', borderRadius: 12,
-          background: 'rgba(201,162,39,0.06)', border: '1px solid rgba(201,162,39,0.15)',
-          display: 'flex', flexDirection: 'column', gap: 6,
+          background: 'rgba(84,160,255,0.06)', border: '1px solid rgba(84,160,255,0.15)',
+          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <span style={{ fontSize: '0.7rem', fontWeight: 600 }}>👩 Annem</span>
-            <span style={{ fontSize: '0.5rem', color: '#c9a227', fontFamily: 'IBM Plex Mono, monospace' }}>Bütçe: ₺500</span>
+          <div>
+            <div style={{ fontSize: '0.5rem', opacity: 0.4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Bu Ay Toplam</div>
+            <div style={{ fontSize: '1.15rem', fontWeight: 800, color: '#54a0ff', marginTop: 2 }}>₺2.140</div>
           </div>
-          <div style={{ display: 'flex', gap: 5 }}>
-            {['Bahçe', 'Kitap', 'Kahve', 'Müzik'].map((tag, i) => (
-              <span key={i} style={{
-                padding: '2px 7px', borderRadius: 6,
-                background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)',
-                fontSize: '0.46rem', opacity: 0.6,
-              }}>{tag}</span>
-            ))}
-          </div>
+          <div style={{
+            padding: '4px 9px', borderRadius: 8,
+            background: 'rgba(255,107,107,0.12)', border: '1px solid rgba(255,107,107,0.25)',
+            fontSize: '0.48rem', color: '#ff6b6b', fontFamily: 'IBM Plex Mono, monospace',
+          }}>1 Geciken</div>
         </div>
-        {/* AI tag */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-          <div style={{ width: 5, height: 5, borderRadius: '50%', background: '#c9a227', animation: 'sdot-pulse 2s ease infinite' }} />
-          <span style={{ fontSize: '0.5rem', color: '#c9a227', letterSpacing: '0.12em', textTransform: 'uppercase', fontFamily: 'IBM Plex Mono, monospace' }}>AI Önerileri · 12 seçenek</span>
-        </div>
-        {/* Gift cards */}
+        {/* Upcoming list */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-          {gifts.map((g, i) => (
+          {items.map((it, i) => (
             <div key={i} style={{
               display: 'flex', alignItems: 'center', gap: 10,
               padding: '9px 12px', borderRadius: 11,
-              background: i === 0 ? `${g.color}10` : 'rgba(255,255,255,0.03)',
-              border: `1px solid ${i === 0 ? `${g.color}25` : 'rgba(255,255,255,0.06)'}`,
+              background: it.paid ? 'rgba(0,255,170,0.05)' : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${it.paid ? 'rgba(0,255,170,0.15)' : 'rgba(255,255,255,0.06)'}`,
             }}>
-              <span style={{ fontSize: '1.1rem' }}>{g.emoji}</span>
+              <div style={{ width: 8, height: 8, borderRadius: '50%', background: it.color, flexShrink: 0 }} />
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: '0.66rem', fontWeight: 600 }}>{g.name}</div>
-                <div style={{ height: 2, background: 'rgba(255,255,255,0.05)', borderRadius: 1, marginTop: 4, overflow: 'hidden' }}>
-                  <div style={{ height: '100%', width: `${g.match}%`, background: g.color, borderRadius: 1, opacity: 0.7 }} />
-                </div>
+                <div style={{ fontSize: '0.66rem', fontWeight: 600 }}>{it.name}</div>
+                <div style={{ fontSize: '0.46rem', opacity: 0.45, marginTop: 2 }}>{it.due}</div>
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 1 }}>
-                <span style={{ fontSize: '0.58rem', fontWeight: 700, color: g.color }}>{g.price}</span>
-                <span style={{ fontSize: '0.44rem', opacity: 0.4, fontFamily: 'IBM Plex Mono, monospace' }}>{g.match}% eşleşme</span>
-              </div>
+              <span style={{ fontSize: '0.6rem', fontWeight: 700, color: it.color }}>{it.amount}</span>
             </div>
           ))}
         </div>
@@ -1322,7 +1289,7 @@ function SafetyWatchScreen() {
   );
 }
 
-const APP_SCREENS = [DreamOracleScreen, PomoQuestScreen, CheckMyBiteScreen, GiftieScreen];
+const APP_SCREENS = [DreamOracleScreen, PomoQuestScreen, NetSayacimScreen, SpendWiseScreen];
 
 /* ═══════════════════════════════════════════════════════════════
    BUILD LOADER
@@ -1567,14 +1534,27 @@ function ShowcaseSection() {
                 <span key={i} className={`pill${i === 0 ? ' hi' : ''}`}>{s}</span>
               ))}
             </div>
-            {p.storeUrl && (
-              <a href={p.storeUrl} className="store-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                </svg>
-                App Store'da Gör →
-              </a>
-            )}
+            <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
+              {p.storeUrl && (
+                <a href={p.storeUrl} className="store-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                  </svg>
+                  App Store'da Gör →
+                </a>
+              )}
+              {p.playUrl && (
+                <a href={p.playUrl} className="store-btn">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.6 2.16c-.34.34-.53.85-.53 1.5v16.68c0 .65.19 1.16.53 1.5l.1.08L13.6 12.5v-.24L3.7 2.08l-.1.08z"/>
+                    <path d="M16.9 15.8l-3.3-3.3v-.24l3.3-3.3.07.04 3.9 2.22c1.12.63 1.12 1.67 0 2.3l-3.9 2.22-.07.06z"/>
+                    <path d="M17 15.76 13.6 12.38 3.7 22.28c.37.39 1 .44 1.7.05l11.6-6.57"/>
+                    <path d="M17 8.24 5.4 1.67c-.7-.4-1.33-.34-1.7.05l9.9 9.9L17 8.24z"/>
+                  </svg>
+                  Google Play'de Gör →
+                </a>
+              )}
+            </div>
           </div>
 
           <div className="dots">
