@@ -42,6 +42,15 @@ const SHOWCASE_PROJECTS = [
     accent: '#54a0ff',
     glow: 'radial-gradient(circle, rgba(84,160,255,0.07) 0%, transparent 70%)',
   },
+  {
+    id: 4,
+    name: 'Pawfect Time',
+    desc: 'Evcil hayvanlar için ilaç, aşı, mama ve kilo takibini tek yerde toplayan bakım uygulaması. Zamanında hatırlatmalar, iCloud ile aile paylaşımı, widget ve Apple Watch desteği sunar; hesap gerektirmez, veri toplamaz.',
+    stack: ['SwiftUI', 'CloudKit', 'WidgetKit', 'watchOS'],
+    storeUrl: 'https://apps.apple.com/tr/app/pawfect-time/id6827670572?l=tr',
+    accent: '#ff7eb6',
+    glow: 'radial-gradient(circle, rgba(255,126,182,0.07) 0%, transparent 70%)',
+  },
 ];
 
 const OTHER_PROJECTS = [
@@ -109,7 +118,7 @@ const OTHER_PROJECTS = [
 
 const EXPERIENCE = [
   {
-    role: 'Co-founder · Flutter & iOS Developer',
+    role: 'Co-founder · Software Engineer',
     company: 'IF22 Software',
     companyUrl: 'https://if22software.github.io/',
     period: 'Ocak 2026 — Devam ediyor',
@@ -117,7 +126,7 @@ const EXPERIENCE = [
     desc: 'Dream Oracle ve PomoQuest projelerini App Store\'a taşıdı. Flutter, Swift, Go, Firebase, Supabase ile geliştirme ve App Store lifecycle yönetimi.',
   },
   {
-    role: 'Mobile Application Developer Intern',
+    role: 'Software Engineer Intern',
     company: 'Virtus R&D Software Inc.',
     companyUrl: '#',
     period: 'Temmuz 2025 — Ağustos 2025',
@@ -125,7 +134,7 @@ const EXPERIENCE = [
     desc: 'Yeniden kullanılabilir UI bileşenleri geliştirdi. Riverpod ile state management, RESTful API entegrasyonu ve Agile takım ortamında çalışma.',
   },
   {
-    role: 'Mobile Application Developer',
+    role: 'Software Engineer',
     company: 'Softwer Malta',
     companyUrl: '#',
     period: 'Aralık 2024 — Nisan 2025',
@@ -133,7 +142,7 @@ const EXPERIENCE = [
     desc: 'Flutter ve Dart ile mobil uygulama geliştirdi. OAuth ve Firebase Authentication ile güvenli kimlik doğrulama, özel widget ve UI bileşenleri.',
   },
   {
-    role: 'Software Developer Intern',
+    role: 'Software Engineer Intern',
     company: 'Mersin International Port (MIP)',
     companyUrl: '#',
     period: 'Temmuz 2024 — Ağustos 2024',
@@ -1224,6 +1233,70 @@ function SpendWiseScreen() {
   );
 }
 
+/* Pawfect Time */
+function PawfectTimeScreen() {
+  const tasks = [
+    { name: 'Sabah maması', pet: 'Pamuk', time: '08:00', done: true },
+    { name: 'Kalp kurdu ilacı', pet: 'Karamel', time: '12:30', done: false },
+    { name: 'Akşam yürüyüşü', pet: 'Karamel', time: '19:00', done: false },
+  ];
+  return (
+    <div style={{ background: 'linear-gradient(160deg, #1a0512 0%, #0d0209 100%)', height: '100%' }}>
+      <StatusBar />
+      <div className="app-body">
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <span style={{ fontSize: '0.9rem' }}>🐾</span>
+          <span className="app-ttl">Pawfect Time</span>
+        </div>
+        {/* Today progress card */}
+        <div style={{
+          padding: '10px 12px', borderRadius: 12,
+          background: 'rgba(255,126,182,0.06)', border: '1px solid rgba(255,126,182,0.15)',
+        }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <div style={{ fontSize: '0.5rem', opacity: 0.4, letterSpacing: '0.08em', textTransform: 'uppercase' }}>Bugün</div>
+            <div style={{ fontSize: '0.6rem', fontWeight: 700, color: '#ff7eb6', fontFamily: 'IBM Plex Mono, monospace' }}>1 / 3</div>
+          </div>
+          <div style={{ height: 3, background: 'rgba(255,255,255,0.05)', borderRadius: 2, overflow: 'hidden', marginTop: 7 }}>
+            <div style={{ height: '100%', width: '33%', background: '#ff7eb6', borderRadius: 2, opacity: 0.85 }} />
+          </div>
+        </div>
+        {/* Task list */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
+          {tasks.map((t, i) => (
+            <div key={i} style={{
+              display: 'flex', alignItems: 'center', gap: 10,
+              padding: '9px 12px', borderRadius: 11,
+              background: t.done ? 'rgba(255,126,182,0.06)' : 'rgba(255,255,255,0.03)',
+              border: `1px solid ${t.done ? 'rgba(255,126,182,0.18)' : 'rgba(255,255,255,0.06)'}`,
+            }}>
+              <div style={{
+                width: 12, height: 12, borderRadius: '50%', flexShrink: 0,
+                border: `1.5px solid ${t.done ? '#ff7eb6' : 'rgba(255,255,255,0.25)'}`,
+                background: t.done ? '#ff7eb6' : 'transparent',
+              }} />
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: '0.64rem', fontWeight: 600, textDecoration: t.done ? 'line-through' : 'none', opacity: t.done ? 0.6 : 1 }}>{t.name}</div>
+                <div style={{ fontSize: '0.46rem', opacity: 0.45, marginTop: 2 }}>{t.pet}</div>
+              </div>
+              <span style={{ fontSize: '0.5rem', color: 'var(--text-muted)', fontFamily: 'IBM Plex Mono, monospace' }}>{t.time}</span>
+            </div>
+          ))}
+        </div>
+        {/* Vaccine reminder */}
+        <div style={{
+          padding: '8px 10px', borderRadius: 10, textAlign: 'center',
+          background: 'rgba(255,126,182,0.08)', border: '1px dashed rgba(255,126,182,0.25)',
+          fontSize: '0.52rem', color: '#ff7eb6', letterSpacing: '0.06em',
+          fontFamily: 'IBM Plex Mono, monospace',
+        }}>
+          💉 Kuduz aşısı · 5 gün kaldı
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function SafetyWatchScreen() {
   const violations = [
     { type: 'Kask Eksik', cam: 'Kamera 3', time: '14:22', color: '#ff6b6b' },
@@ -1289,7 +1362,7 @@ function SafetyWatchScreen() {
   );
 }
 
-const APP_SCREENS = [DreamOracleScreen, PomoQuestScreen, NetSayacimScreen, SpendWiseScreen];
+const APP_SCREENS = [DreamOracleScreen, PomoQuestScreen, NetSayacimScreen, SpendWiseScreen, PawfectTimeScreen];
 
 /* ═══════════════════════════════════════════════════════════════
    BUILD LOADER
@@ -1346,7 +1419,7 @@ function Hero() {
       <div className="hero-spotlight" />
       <div className="hero-content">
         <span className="hero-name"> İbrahim Binbuğa</span>
-        <span className="hero-role">Flutter & iOS Developer</span>
+        <span className="hero-role">Software Engineer</span>
       </div>
       <div className="scroll-hint">
         <div className="scroll-line" />
@@ -1524,7 +1597,7 @@ function ShowcaseSection() {
         {/* Left: info */}
         <div className="sc-info">
           <span className="sc-label">// ios apps</span>
-          <h2 className="sc-heading">iOS Developer</h2>
+          <h2 className="sc-heading">Software Engineer</h2>
 
           <div className="pj-info">
             <div className={`pj-name${swapping ? ' swap' : ''}`}>{p.name}</div>
