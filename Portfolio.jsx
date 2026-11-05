@@ -61,8 +61,6 @@ const OTHER_PROJECTS = [
     stack: ['iOS', 'Flutter', 'Go', 'Docker', 'Swift'],
     demo: 'https://if22software.github.io/',
     code: 'https://github.com/IF22Software/if22software.github.io',
-    flip: false,
-    visColor: 'rgba(0,255,170,0.04)',
   },
   {
     num: '02',
@@ -71,8 +69,6 @@ const OTHER_PROJECTS = [
     stack: ['Vercel', 'React', 'Go', 'Docker'],
     demo: 'https://iflow-orpin.vercel.app/',
     code: 'https://github.com/ibrahimbinbuga/iflow',
-    flip: true,
-    visColor: 'rgba(124,92,252,0.04)',
   },
   {
     num: '03',
@@ -81,8 +77,6 @@ const OTHER_PROJECTS = [
     stack: ['FastAPI', 'React', 'SQLite', 'ML', 'Python'],
     demo: null,
     code: 'https://github.com/ibrahimbinbuga/meeting-app',
-    flip: false,
-    visColor: 'rgba(255,159,67,0.04)',
   },
   {
     num: '04',
@@ -91,8 +85,6 @@ const OTHER_PROJECTS = [
     stack: ['Flask', 'Python', 'ML', 'HTML', 'CSS'],
     demo: '#',
     code: '#',
-    flip: true,
-    visColor: 'rgba(84,160,255,0.04)',
   },
   {
     num: '05',
@@ -101,8 +93,6 @@ const OTHER_PROJECTS = [
     stack: ['Flutter', 'Python', 'Deep Learning'],
     demo: null,
     code: null,
-    flip: false,
-    visColor: 'rgba(255,107,107,0.04)',
   },
   {
     num: '06',
@@ -111,8 +101,6 @@ const OTHER_PROJECTS = [
     stack: ['React', 'Flask', 'Deep Learning', 'Python'],
     demo: null,
     code: null,
-    flip: true,
-    visColor: 'rgba(124,92,252,0.04)',
   },
 ];
 
@@ -720,16 +708,15 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 .sp-stack { display: flex; flex-wrap: wrap; gap: 7px; }
 
 /* ── Other Projects ─────────────────────────────────── */
-.other-section { max-width: 1100px; margin: 0 auto; padding: 80px 0 60px; }
+.other-section { max-width: 800px; margin: 0 auto; padding: 80px 48px 60px; }
 .pb {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-  align-items: center; padding: 60px 48px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-subtle);
   opacity: 0; transform: translateY(36px);
   transition: opacity 0.75s var(--ease-ios), transform 0.75s var(--ease-ios);
 }
+.pb:first-child { border-top: 1px solid var(--border-subtle); }
 .pb.vis { opacity: 1; transform: translateY(0); }
-.pb.flip { direction: rtl; }
-.pb.flip > * { direction: ltr; }
 .pb-text { display: flex; flex-direction: column; gap: 14px; }
 .pb-num {
   font-family: 'IBM Plex Mono', monospace;
@@ -747,24 +734,6 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   transition: gap 0.2s, border-color 0.2s;
 }
 .pb-link:hover { gap: 10px; border-color: var(--accent); }
-.pb-visual {
-  aspect-ratio: 4/3; border-radius: 14px;
-  border: 1px solid var(--border-subtle);
-  background: var(--bg-card);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  overflow: hidden;
-  transform: perspective(1000px) rotateY(-3deg) rotateX(1deg);
-  transition: transform 0.4s var(--ease-ios);
-  display: flex; flex-direction: column;
-  justify-content: flex-end; padding: 24px; gap: 9px;
-  position: relative;
-}
-.pb.flip .pb-visual { transform: perspective(1000px) rotateY(3deg) rotateX(1deg); }
-.pb-visual:hover { transform: perspective(1000px) rotateY(0) rotateX(0) scale(1.015) !important; }
-.pb-vis-lines { display: flex; flex-direction: column; gap: 5px; position: relative; z-index: 1; }
-.pb-vis-line { height: 5px; border-radius: 3px; background: rgba(255,255,255,0.05); }
-.pb-vis-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 5px; position: relative; z-index: 1; }
-.pb-vis-block { height: 30px; border-radius: 6px; background: rgba(255,255,255,0.04); }
 
 /* ── Contact ────────────────────────────────────────── */
 .contact-section {
@@ -914,7 +883,6 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 /* ── Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .showcase-sticky { padding: 0 28px; gap: 28px; }
-  .pb { padding: 50px 28px; gap: 40px; }
 }
 @media (max-width: 768px) {
   .status-badge { display: none; }
@@ -940,11 +908,8 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   .exp-item { grid-template-columns: 1fr; }
   .exp-period { grid-column: 1; }
   .exp-location { grid-column: 1; text-align: left; }
-  .other-section { padding: 40px 0; }
-  .pb { grid-template-columns: 1fr; padding: 36px 20px; gap: 24px; direction: ltr; }
-  .pb.flip { direction: ltr; }
-  .pb-text { order: 2; }
-  .pb-visual { order: 1; transform: none !important; }
+  .other-section { padding: 40px 20px; }
+  .pb { padding: 32px 0; }
   .contact-section { padding: 100px 24px 60px; }
   .contact-socials { gap: 16px; }
   .contact-btns { flex-direction: column; align-items: stretch; width: 100%; max-width: 320px; }
@@ -1727,7 +1692,7 @@ function ProjectBand({ project }) {
   return (
     <div
       ref={ref}
-      className={`pb${project.flip ? ' flip' : ''}`}
+      className="pb"
     >
       <div className="pb-text">
         <div className="pb-num">{project.num}</div>
@@ -1739,17 +1704,6 @@ function ProjectBand({ project }) {
         <div className="pb-links">
           {project.demo && <a href={project.demo} className="pb-link">Demo →</a>}
           <a href={project.code} className="pb-link">Kod →</a>
-        </div>
-      </div>
-
-      <div className="pb-visual" style={{ background: `linear-gradient(135deg, ${project.visColor}, var(--bg-card))` }}>
-        <div className="pb-vis-grid">
-          {[...Array(8)].map((_, i) => <div key={i} className="pb-vis-block" />)}
-        </div>
-        <div className="pb-vis-lines">
-          {[100, 75, 55, 85].map((w, i) => (
-            <div key={i} className="pb-vis-line" style={{ width: `${w}%` }} />
-          ))}
         </div>
       </div>
     </div>
