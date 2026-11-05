@@ -1829,7 +1829,7 @@ function Contact() {
           <a href="mailto:ibrahimbinbugaa@gmail.com" className="contact-email">
             ibrahimbinbugaa@gmail.com
           </a>
-          <a href="/portfolio-website/ibrahim_binbuga_resume.docx" download="ibrahim_binbuga_resume.docx" className="cv-btn">
+          <a href={`${import.meta.env.BASE_URL}ibrahim_binbuga_cv_en.pdf`} download="ibrahim_binbuga_cv_en.pdf" className="cv-btn">
             <svg viewBox="0 0 24 24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
               <polyline points="7 10 12 15 17 10"/>
