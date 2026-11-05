@@ -170,7 +170,7 @@ const STYLES = `
   --bg-elevated:   #0d0d14;
   --bg-card:       #111119;
   --text-primary:  #f0f0f3;
-  --text-muted:    #5a5a6e;
+  --text-muted:    #9494a8;
   --accent:        #00ffaa;
   --accent-glow:   rgba(0,255,170,0.07);
   --accent-alt:    #7c5cfc;
@@ -242,9 +242,9 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   0%,100% { box-shadow: 0 0 0 0 rgba(0,255,170,0.5); }
   50%      { box-shadow: 0 0 0 5px rgba(0,255,170,0); }
 }
-.corner-links { position: fixed; top: 24px; right: 28px; display: flex; gap: 14px; z-index: 100; }
+.corner-links { position: fixed; top: 18px; right: 22px; display: flex; gap: 4px; z-index: 100; }
 .corner-link {
-  width: 32px; height: 32px;
+  width: 44px; height: 44px;
   display: flex; align-items: center; justify-content: center;
   color: var(--text-muted);
   transition: color 0.2s ease;
@@ -287,6 +287,9 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   animation: fade-up 0.6s 2.1s var(--ease-ios) forwards;
 }
 @keyframes fade-up { to { opacity: 1; transform: translateY(0); } }
+.skip-intro .hero-name   { animation-delay: 0.1s; }
+.skip-intro .hero-role   { animation-delay: 0.4s; }
+.skip-intro .scroll-hint { animation-delay: 0.8s; }
 .scroll-hint {
   position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 10px;
@@ -314,7 +317,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   max-width: 580px; margin: 0 auto 56px; padding: 0 24px;
   text-align: center;
   font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-  line-height: 1.85; color: var(--text-muted); font-weight: 300;
+  line-height: 1.85; color: var(--text-muted); font-weight: 400;
   opacity: 0; transform: translateY(20px);
   transition: opacity 0.7s var(--ease-ios), transform 0.7s var(--ease-ios);
 }
@@ -370,7 +373,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 .pj-name.swap { opacity: 0; transform: translateY(-8px); }
 .pj-desc {
   font-size: 0.92rem; color: var(--text-muted);
-  line-height: 1.75; font-weight: 300; max-width: 360px;
+  line-height: 1.75; font-weight: 400; max-width: 360px;
   transition: opacity 0.3s ease;
 }
 .pj-desc.swap { opacity: 0; }
@@ -395,7 +398,9 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   height: 7px; width: 7px; border-radius: 4px;
   background: var(--text-muted); opacity: 0.25;
   transition: all 0.35s var(--ease-ios); cursor: pointer;
+  position: relative;
 }
+.dot-item::after { content: ''; position: absolute; inset: -18px -4px; }
 .dot-item.on { width: 22px; opacity: 1; background: var(--accent); }
 
 /* Phone wrapper */
@@ -651,11 +656,11 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 .exp-location {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.6rem; color: var(--text-muted);
-  grid-column: 2; text-align: right; opacity: 0.6;
+  grid-column: 2; text-align: right;
 }
 .exp-desc {
   font-size: 0.88rem; color: var(--text-muted);
-  line-height: 1.7; font-weight: 300;
+  line-height: 1.7; font-weight: 400;
   grid-column: 1 / -1; margin-top: 4px;
 }
 
@@ -679,7 +684,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 }
 .sp-subtitle {
   font-size: 0.9rem; color: var(--text-muted);
-  line-height: 1.7; font-weight: 300; margin-bottom: 24px;
+  line-height: 1.7; font-weight: 400; margin-bottom: 24px;
 }
 .sp-stats {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -706,7 +711,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 }
 .sp-bullet {
   display: flex; align-items: flex-start; gap: 10px;
-  font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-weight: 300;
+  font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; font-weight: 400;
 }
 .sp-bullet::before {
   content: ''; width: 5px; height: 5px; border-radius: 50%;
@@ -732,7 +737,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   color: var(--accent); opacity: 0.25; line-height: 1; letter-spacing: -0.02em;
 }
 .pb-name { font-size: clamp(1.6rem,3vw,2.2rem); font-weight: 700; letter-spacing: -0.03em; color: var(--text-primary); line-height: 1.05; }
-.pb-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text-muted); font-weight: 300; }
+.pb-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text-muted); font-weight: 400; }
 .pb-stack { display: flex; flex-wrap: wrap; gap: 7px; }
 .pb-links { display: flex; gap: 20px; }
 .pb-link {
@@ -818,7 +823,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
   padding: 28px 24px; text-align: center;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.6rem; letter-spacing: 0.1em;
-  color: var(--text-muted); opacity: 0.35;
+  color: var(--text-muted);
 }
 
 /* ── Easter Egg ─────────────────────────────────────── */
@@ -887,7 +892,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 }
 .edu-meta {
   font-size: 0.88rem; color: var(--text-muted);
-  line-height: 1.7; font-weight: 300;
+  line-height: 1.7; font-weight: 400;
   grid-column: 1 / -1; margin-top: 4px;
 }
 .lang-row {
@@ -913,7 +918,7 @@ button { border: none; cursor: pointer; font-family: inherit; background: transp
 }
 @media (max-width: 768px) {
   .status-badge { display: none; }
-  .corner-links { top: 18px; right: 18px; }
+  .corner-links { top: 12px; right: 12px; }
   .about { padding: 80px 0 60px; }
   .about-text { margin-bottom: 36px; }
   .showcase-sticky {
@@ -1423,7 +1428,7 @@ function Hero() {
       </div>
       <div className="scroll-hint">
         <div className="scroll-line" />
-        <span className="scroll-txt">scroll</span>
+        <span className="scroll-txt" lang="en">scroll</span>
       </div>
     </section>
   );
@@ -1467,6 +1472,7 @@ function IPhoneMockup({ activeIndex, tiltX, tiltY }) {
   return (
     <div
       className="iphone"
+      aria-hidden="true"
       style={{ transform: `perspective(1200px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)` }}
     >
       <div className="iphone-screen">
@@ -1507,7 +1513,7 @@ function ShowcaseSection() {
       ([e]) => { if (e.isIntersecting) setPhoneVisible(true); },
       { threshold: 0.2 }
     );
-    if (sectionRef.current) obs.observe(sectionRef.current);
+    if (phoneRef.current) obs.observe(phoneRef.current);
     return () => obs.disconnect();
   }, []);
 
@@ -1537,6 +1543,7 @@ function ShowcaseSection() {
   // Mobile: auto-play
   useEffect(() => {
     if (!isMobile) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     autoTimer.current = setInterval(() => {
       setSwapping(true);
       setTimeout(() => {
@@ -1549,7 +1556,7 @@ function ShowcaseSection() {
 
   // Swipe support (mobile)
   const touchStart = useRef(null);
-  const onTouchStart = (e) => { touchStart.current = e.touches[0].clientX; };
+  const onTouchStart = (e) => { clearInterval(autoTimer.current); touchStart.current = e.touches[0].clientX; };
   const onTouchEnd = useCallback((e) => {
     if (!touchStart.current) return;
     const dx = e.changedTouches[0].clientX - touchStart.current;
@@ -1587,7 +1594,7 @@ function ShowcaseSection() {
     <section
       className="showcase-section"
       ref={sectionRef}
-      style={{ height: `${(SHOWCASE_PROJECTS.length + 1) * 100}vh` }}
+      style={{ height: isMobile ? '100svh' : `${(SHOWCASE_PROJECTS.length + 1) * 100}vh` }}
     >
       <div
         className="showcase-sticky"
@@ -1596,7 +1603,7 @@ function ShowcaseSection() {
       >
         {/* Left: info */}
         <div className="sc-info">
-          <span className="sc-label">// ios apps</span>
+          <span className="sc-label" lang="en">// apps</span>
           <h2 className="sc-heading">Software Engineer</h2>
 
           <div className="pj-info">
@@ -1604,7 +1611,7 @@ function ShowcaseSection() {
             <div className={`pj-desc${swapping ? ' swap' : ''}`}>{p.desc}</div>
             <div className="pj-stack">
               {p.stack.map((s, i) => (
-                <span key={i} className={`pill${i === 0 ? ' hi' : ''}`}>{s}</span>
+                <span key={i} lang="en" className={`pill${i === 0 ? ' hi' : ''}`}>{s}</span>
               ))}
             </div>
             <div style={{ display: 'flex', gap: 18, flexWrap: 'wrap' }}>
@@ -1636,6 +1643,7 @@ function ShowcaseSection() {
                 key={i}
                 className={`dot-item${i === activeIndex ? ' on' : ''}`}
                 onClick={() => {
+                  clearInterval(autoTimer.current);
                   setSwapping(true);
                   setTimeout(() => { setActiveIndex(i); setSwapping(false); }, 300);
                 }}
@@ -1702,7 +1710,7 @@ function ExpItem({ item, delay }) {
 function Experience() {
   return (
     <section className="exp-section">
-      <span className="exp-label">// experience</span>
+      <span className="exp-label" lang="en">// experience</span>
       <div className="exp-list">
         {EXPERIENCE.map((item, i) => (
           <ExpItem key={i} item={item} delay={i * 80} />
@@ -1726,7 +1734,7 @@ function ProjectBand({ project }) {
         <div className="pb-name">{project.name}</div>
         <div className="pb-desc">{project.desc}</div>
         <div className="pb-stack">
-          {project.stack.map((s, i) => <span key={i} className="pill">{s}</span>)}
+          {project.stack.map((s, i) => <span key={i} lang="en" className="pill">{s}</span>)}
         </div>
         <div className="pb-links">
           {project.demo && <a href={project.demo} className="pb-link">Demo →</a>}
@@ -1766,7 +1774,7 @@ function SeniorProject() {
 
   return (
     <section className="sp-section">
-      <span className="exp-label">// bitirme projesi</span>
+      <span className="exp-label" lang="en">// bitirme projesi</span>
       <div className="sp-card" ref={ref}>
         <h2 className="sp-title">SafetyWatch AI</h2>
         <p className="sp-subtitle">
@@ -1798,7 +1806,7 @@ function SeniorProject() {
         </div>
         <div className="sp-stack">
           {['Flutter', 'React 19', 'FastAPI', 'PostgreSQL', 'WebSocket', 'Firebase Cloud Messaging', 'Docker', 'YOLOv11', 'Render', 'Vercel'].map((t, i) => (
-            <span key={i} className={`pill${i === 0 ? ' hi' : ''}`}>{t}</span>
+            <span key={i} lang="en" className={`pill${i === 0 ? ' hi' : ''}`}>{t}</span>
           ))}
         </div>
         <div style={{ marginTop: 24 }}>
@@ -1831,7 +1839,7 @@ function Education() {
 
   return (
     <section className="edu-section">
-      <span className="exp-label">// education</span>
+      <span className="exp-label" lang="en">// education</span>
       <div>
         <div className="edu-item" ref={itemRef}>
           <span className="edu-degree">Yazılım Mühendisliği Lisans</span>
@@ -1877,9 +1885,9 @@ function Contact() {
           </a>
         </div>
         <div className="contact-socials">
-          <a href="https://github.com/ibrahimbinbuga" className="soc-link">GitHub</a>
+          <a href="https://github.com/ibrahimbinbuga" className="soc-link" lang="en">GitHub</a>
           <span className="soc-sep">·</span>
-          <a href="https://www.linkedin.com/in/ibrahim-binbu%C4%9Fa/" className="soc-link">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/ibrahim-binbu%C4%9Fa/" className="soc-link" lang="en">LinkedIn</a>
           
         </div>
       </section>
@@ -1901,7 +1909,7 @@ function EasterEgg({ show, onClose }) {
         <div><span className="kw">import</span> <span className="fn">SwiftUI</span></div>
         <div><span className="cm">// Merhaba, meraklı ziyaretçi 👋</span></div>
         <div>&nbsp;</div>
-        <div><span className="kw">struct</span> <span className="fn">Developer</span> {'{'}</div>
+        <div><span className="kw">struct</span> <span className="fn">SoftwareEngineer</span> {'{'}</div>
         <div>{'  '}<span className="kw">let</span> name<span className="cm"> = </span><span className="str">"İbrahim Binbuğa"</span></div>
         <div>{'  '}<span className="kw">let</span> passion<span className="cm"> = </span><span className="str">"iOS"</span></div>
         <div>{'  '}<span className="kw">var</span> isHiring<span className="cm">: </span><span className="fn">Bool</span> {'{'}</div>
@@ -1919,7 +1927,17 @@ function EasterEgg({ show, onClose }) {
 ═══════════════════════════════════════════════════════════════ */
 
 export default function Portfolio() {
-  const [ready, setReady] = useState(false);
+  const [skipIntro] = useState(() => {
+    try {
+      return sessionStorage.getItem('introSeen') === '1'
+        || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    } catch { return false; }
+  });
+  const [ready, setReady] = useState(skipIntro);
+  const finishIntro = useCallback(() => {
+    try { sessionStorage.setItem('introSeen', '1'); } catch { /* storage unavailable */ }
+    setReady(true);
+  }, []);
   const [easterEgg, setEasterEgg] = useState(false);
 
   // Konami code
@@ -1946,14 +1964,14 @@ export default function Portfolio() {
     <>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
 
-      {!ready && <BuildLoader onDone={() => setReady(true)} />}
+      {!ready && <BuildLoader onDone={finishIntro} />}
 
-      <div style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.5s ease' }}>
+      <div className={skipIntro ? 'skip-intro' : undefined} style={{ opacity: ready ? 1 : 0, transition: 'opacity 0.5s ease' }}>
 
         {/* Fixed UI */}
         <div className="status-badge">
           <div className="sdot" />
-          <span>open to work</span>
+          <span lang="en">open to work</span>
         </div>
         <div className="corner-links">
           <a href="https://github.com/ibrahimbinbuga" target="_blank" rel="noreferrer" className="corner-link" aria-label="GitHub">
